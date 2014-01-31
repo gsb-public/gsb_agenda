@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the GSB Agenda.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function gsb_agenda_install() {
+  gsb_agenda_install_fixtures();
+}
+
+
+/**
+ * Install an today's hours block
+ */
+function gsb_agenda_install_fixtures() {
+  $records = array(
+    array(2, 'noeventstext', '<p>No upcoming events</p>'),
+    array(2, 'timeformat',   'h:ia'),
+    array(2, 'dateformat',   'l, F jS'),
+    array(2, 'maxevents',    '10'),
+    array(2, 'datelimit',    '60'),
+    array(2, 'start',        'now'),
+    array(2, 'end',          '+1 day'),
+    array(2, 'title',        'Today\'s hours'),
+    array(2, 'linktext',     'Full Schedule'),
+    array(2, 'cachetime',    '3600'),
+    array(2, 'display_keys', ''),
+    array(2, 'hide_labels',  'link, description, title, start time, end time'),
+    array(2, 'calendars',    'stanford.edu_7ir1n98hapctrnl40bf203v4k0@group.calendar.google.com'),
+    array(2, 'timezone',     'America/Los_Angeles'),
+  );
+
+  $query = db_insert('agenda')
+    ->fields(array('bid', 'name', 'value'));
+  foreach ($records as $record) {
+    $query->values($record);
+  }
+  $query->execute();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function gsb_agenda_uninstall() {
+}

@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Contains hook implementations and helper functions for GSB Agenda
+ */
+
+/**
+ * Implements hook_block_view_MODULE_DELTA_alter()
+ */
+function gsb_agenda_block_view_agenda_2_alter(&$data, $block) {
+   $data['subject'] = 'Today\'s hours';
+   $data['content']['#markup'] .= '<a href=http://www.gsb.stanford.edu/library/info/about/hours.html>Full Schedule</a>';
+}
