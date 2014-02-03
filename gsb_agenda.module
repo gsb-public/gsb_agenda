@@ -10,5 +10,5 @@
  */
 function gsb_agenda_block_view_agenda_2_alter(&$data, $block) {
    $data['subject'] = 'Today\'s hours';
-   $data['content']['#markup'] .= '<a href=http://www.gsb.stanford.edu/library/info/about/hours.html>Full Schedule</a>';
+   $data['content']['#markup'] .= '<a href=http://www.gsb.stanford.edu/library/services-facilities/hours>Full Schedule</a>';
 }
