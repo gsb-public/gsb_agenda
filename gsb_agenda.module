@@ -9,6 +9,6 @@
  * Implements hook_block_view_MODULE_DELTA_alter()
  */
 function gsb_agenda_block_view_agenda_2_alter(&$data, $block) {
-   $data['subject'] = 'Today\'s hours';
-   $data['content']['#markup'] .= '<a href=http://www.gsb.stanford.edu/library/services-facilities/hours>Full Schedule</a>';
+   $data['subject'] = "Today’s Hours";
+   $data['content']['#markup'] .= "<a href=http://www.gsb.stanford.edu/library/services-facilities/hours>Full Schedule</a>";
 }
